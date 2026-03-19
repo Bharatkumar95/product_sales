@@ -1,63 +1,21 @@
-# SDP_PROJECT
-📊 Delta Live Tables – Medallion Architecture Pipeline
-🚀 Overview
+# New Pipeline 2026-01-26 21:48
 
-This project demonstrates the design and implementation of Delta Live Tables (DLT) pipelines using a Medallion Architecture (Bronze → Silver → Gold) to process sales, customers, and products data.
+This folder defines all source code for the 'New Pipeline 2026-01-26 21:48' pipeline:
 
-The pipeline is built using PySpark and Databricks DLT, enabling scalable, reliable, and incremental data processing for analytics such as sales performance and discount analysis.
+- `explorations`: Ad-hoc notebooks used to explore the data processed by this pipeline.
+- `transformations`: All dataset definitions and transformations.
+- `utilities`: Utility functions and Python modules used in this pipeline.
 
-🏗️ Architecture
-The project follows the 3-layer Medallion Architecture:
+## Getting Started
 
-🥉 Bronze Layer (Raw Ingestion)
+To get started, go to the `transformations` folder -- most of the relevant source code lives there:
 
-Ingests raw data from source files using Auto Loader (cloudFiles)
+* By convention, every dataset under `transformations` is in a separate file.
+* Take a look at the sample under "sample_users_jan_26_2148.py" to get familiar with the syntax.
+  Read more about the syntax at https://docs.databricks.com/ldp/developer/python-ref.
+* Use `Run file` to run and preview a single transformation.
+* Use `Run pipeline` to run _all_ transformations in the entire pipeline.
+* Use `+ Add` in the file browser to add a new data set definition.
+* Use `Schedule` to run the pipeline on a schedule!
 
-Handles:
-Schema inference
-Schema evolution (addNewColumns)
-Streaming ingestion
-
-Adds metadata column:
-ingestion_time
-
-Datasets:
-customers
-sales
-products
-
-🥈 Silver Layer (Cleaned & Transformed Data)
-
-Applies data cleaning and transformations
-
-Implements:
-CDC (Change Data Capture) using create_auto_cdc_flow
-SCD Type 2 for customers
-Deduplication and watermarking applied
-Data quality checks using expectations
-
-Key Transformations:
-Remove duplicates (dropDuplicates)
-Apply watermark on ingestion_time
-Filter active records (__END_AT IS NULL)
-Handle delete and truncate operations
-
-🥇 Gold Layer (Business Aggregations)
-Provides analytics-ready datasets
-Aggregates and joins data across silver tables
-
-Key Metrics:
-Total Sales & Discount per Customer
-Top Product Category by Sales Revenue
-
-⚙️ Tech Stack
-
-Databricks Delta Live Tables (DLT)
-PySpark
-Delta Lake
-Auto Loader (cloudFiles)
-Structured Streaming
-
-
-🔄 Data Flow
-Raw Files → Bronze Tables → Silver Tables → Gold Views
+For more tutorials and reference material, see https://docs.databricks.com/ldp.
