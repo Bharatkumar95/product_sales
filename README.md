@@ -59,14 +59,5 @@ Auto Loader (cloudFiles)
 Structured Streaming
 
 
-SDP_PROJECT/
-│
-├── transformations/
-│   ├── bronze.py      # Raw data ingestion
-│   ├── silver.py      # Cleaning, CDC, SCD logic
-│   ├── gold.py        # Aggregations & business logic
-│
-├── utilities/
-│   ├── utils.py       # Helper functions (e.g., ingestion timestamp)
-│
-└── README.md
+🔄 Data Flow
+Raw Files → Bronze Tables → Silver Tables → Gold Views
