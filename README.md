@@ -1,4 +1,4 @@
-# New Pipeline 2026-01-26 21:48
+# product_sales - Lakehouse Spark Declerative Pipelines
 
 This folder defines all source code for the 'New Pipeline 2026-01-26 21:48' pipeline:
 
